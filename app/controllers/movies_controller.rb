@@ -8,10 +8,10 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.neww(movie_params)
+    @movie = Movie.new(movie_params)
 
     if @movie.save
-      redirect_to movies_path
+      redirect_to movies_path, notice: "#{@movie.title} was sumbitted successfully"
     else
       render :new
     end
@@ -21,24 +21,24 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     if @movie.update_attributes(movie_params)
-      redirect_to movies_path
+      redirect_to movies_path(@movie)
     else
       render :edit
     end
   end
 
   def destroy
-    @movie = Movie.finr(params[:id])
+    @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to movies_path
   end
 
   protected
 
-  def movies_params
-    params.require(:movie).permit(
-      :title, :release_date, :director, :runtime_in_minutes :poster_image_url, :description
+  def movie_params
+    params.fetch(:movie, {}).permit(
+      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description
     )
   end
-  
+
 end
