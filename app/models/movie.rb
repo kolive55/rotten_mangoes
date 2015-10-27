@@ -22,12 +22,14 @@ class Movie < ActiveRecord::Base
 
   validate :release_date_is_in_the_past
 
+  mount_uploader :image, ImageUploader
+
   def review_average
     if reviews.size == 0
       puts "No reviews, please enter one"
     else
       reviews.sum(:rating_out_of_ten)/reviews.size
-    end  
+    end
   end
 
   protected
@@ -37,4 +39,5 @@ class Movie < ActiveRecord::Base
       errors.add(:release_date, "should probably be in the past") if release_date > Date.today
     end
   end
+
 end
