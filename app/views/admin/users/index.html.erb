@@ -1,0 +1,19 @@
+<h1>User Management</h1>
+<hr>
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Admin</th>
+  </tr>
+  <tr>
+  <% @users.each do |user| %>
+    <td><%= user.id %></td>
+    <td><%= user.firstname %> <%= user.lastname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.admin %></td>
+  </tr>
+  <% end %>
+</table>
+<hr>
