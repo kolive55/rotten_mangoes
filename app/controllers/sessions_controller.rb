@@ -1,16 +1,17 @@
+require 'pry'
 class SessionsController < ApplicationController
   def new
   end
 
   def create
-  user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email])
 
-  if user && user.authenticate(params[:password])
-    session[:user_id] = user.id
-  end
-    redirect_to movies_path, "Welcome back, #{user.firstname}!"
-  else
-    render :new
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"
+    else
+      render :new
+    end  
   end
 
   def destroy

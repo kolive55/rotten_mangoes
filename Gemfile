@@ -37,6 +37,8 @@ end
 
  gem 'carrierwave'
 
+ gem 'kaminari'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

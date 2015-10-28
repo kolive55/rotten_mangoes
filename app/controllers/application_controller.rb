@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_view
+    if current_user.admin? == false
+      flash[:alert] = "You are not authorized to view this page."
+      redirect_to new_user_path
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
