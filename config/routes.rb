@@ -4,7 +4,7 @@ RottenMangoes::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
+    resources :users 
   end
 
   resources :users, only: [:new, :create]

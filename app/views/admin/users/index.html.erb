@@ -11,7 +11,7 @@
   <tr>
   <% @users.each do |user| %>
     <td><%= user.id %></td>
-    <td><%= user.firstname %> <%= user.lastname %></td>
+    <td><%= user.full_name %></td>
     <td><%= user.email %></td>
     <td><%= user.admin %></td>
   </tr>
