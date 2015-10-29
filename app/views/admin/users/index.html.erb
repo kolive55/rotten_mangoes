@@ -1,6 +1,6 @@
 <h1>User Management</h1>
 <hr>
-
+<h2><%= link_to "New User", new_admin_user_path  %></h2>
 <table style="width:100%">
   <tr>
     <th>ID</th>
@@ -10,7 +10,7 @@
   </tr>
   <tr>
   <% @users.each do |user| %>
-    <td><%= user.id %></td>
+  <td><%= link_to user.id, admin_user_path(user) %></td>
     <td><%= user.full_name %></td>
     <td><%= user.email %></td>
     <td><%= user.admin %></td>
