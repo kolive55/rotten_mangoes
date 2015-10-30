@@ -4,11 +4,12 @@ RottenMangoes::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users 
+    resources :users
   end
 
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   root to: 'movies#index'
+  get 'search', to: 'search#search'
 
 end

@@ -1,4 +1,8 @@
+require 'elasticsearch/model'
+
 class Movie < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   has_many :reviews
 
@@ -41,3 +45,4 @@ class Movie < ActiveRecord::Base
   end
 
 end
+# Movie.import

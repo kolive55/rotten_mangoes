@@ -39,6 +39,10 @@ end
 
  gem 'kaminari'
 
+gem 'elasticsearch-model'
+
+gem 'elasticsearch-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
